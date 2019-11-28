@@ -7,7 +7,9 @@ namespace SKK13
         static void Main(string[] args)
         {
             Menu M = new Menu();
-            M.StartMenu();
+            Dog D = new Dog();
+            Owner O = new Owner();
+            M.StartMenu(D, O);
         }
     }
 }

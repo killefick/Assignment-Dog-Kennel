@@ -343,7 +343,7 @@ FROM
 WHERE Id = @Id
 GO
 
-EXEC FindOwner @Id = 1500
+EXEC FindOwner @Id = 1
 GO
 
 -- Register owner
@@ -456,4 +456,4 @@ GO
 EXEC GetSyblings
 GO
 
-select * from Hundar
+select * from Ägare

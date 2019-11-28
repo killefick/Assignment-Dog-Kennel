@@ -1,14 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using Dapper;
 
 namespace SKK13
 {
     public class DB
+
     {
         // connectionString takes argument from "new DB"
         private readonly string connectionString;
+
+        private string connStr = "Server=40.85.84.155;Database=SKK13;User=Student13;Password=YH-student@2019;";
+        public string ConnStr
+        {
+            get { return connStr; }
+            set { connStr = value; }
+        }
 
         // constructor
         public DB(string connectionString)
@@ -118,6 +127,21 @@ namespace SKK13
                     return connection.Query<Dog>($"EXEC GetSyblings");
                 }
 
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+        public Owner SearchOwner(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    return connection.Query<Owner>($"EXEC FindOwner @Id = 1").First();
+                }
             }
             catch (System.Exception)
             {

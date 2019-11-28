@@ -1,13 +1,11 @@
 using System;
 namespace SKK13
 {
-    public enum Choice { GetAllDogs = 1, CountAllDogs, CountVeterinaryData, GetDogInfo, GetSyblings };
+    public enum Choice { Quit, GetAllDogs, CountAllDogs, CountVeterinaryData, GetDogInfo, GetSyblings, SearchOwner };
 
     class Menu
     {
-        Dog D = new Dog();
-
-        public void StartMenu()
+        public void StartMenu(Dog D, Owner O)
         {
             // default user choice
             int choice = 0;
@@ -22,7 +20,9 @@ namespace SKK13
                 + Convert.ToInt32(Choice.CountAllDogs) + ": Visa antal hundar i databas\n"
                 + Convert.ToInt32(Choice.CountVeterinaryData) + ": Visa antal veterinärdata i databas\n"
                 + Convert.ToInt32(Choice.GetDogInfo) + ": Visa hundinfo för Hund med Id 9 (Fantasia Li)\n"
-                + Convert.ToInt32(Choice.GetSyblings) + ": Visa syskonpar\n");
+                + Convert.ToInt32(Choice.GetSyblings) + ": Visa syskonpar\n"
+                + Convert.ToInt32(Choice.SearchOwner) + ": Leta efter ägare\n"
+                + Convert.ToInt32(Choice.Quit) + ": Avsluta\n");
 
                 try
                 {
@@ -66,6 +66,14 @@ namespace SKK13
                         PressAnyKey();
                         break;
 
+                    case Choice.SearchOwner:
+                        O.SearchOwner();
+                        PressAnyKey();
+                        break;
+
+                    case Choice.Quit:
+                        return;
+
                     default:
                         Console.WriteLine("Mata in en siffra mellan "
                         + Convert.ToInt32(Choice.GetAllDogs) + " och "
@@ -76,20 +84,20 @@ namespace SKK13
             }
         }
 
-        private void PressAnyKey()
+        public void PressAnyKey()
         {
             Console.Write("Press any key...");
             Console.ReadKey();
         }
 
-        int TryToConvertToInt(string input)
+        public int TryToConvertToInt(string input)
         {
             int result = 0;
             try
             {
                 result = Convert.ToInt32(input);
             }
-            catch(FormatException ex)
+            catch (FormatException ex)
             {
                 Console.WriteLine(ex.Message);
                 throw;

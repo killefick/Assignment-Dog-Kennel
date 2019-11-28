@@ -18,7 +18,9 @@ namespace SKK13
         public int Saknad { get; set; }
         public int Hittad { get; set; }
 
-         string connStr = "Server=40.85.84.155;Database=SKK13;User=Student13;Password=YH-student@2019;";
+        
+        string connStr = "Server=40.85.84.155;Database=SKK13;User=Student13;Password=YH-student@2019;";
+
 
         public void GetAllDogs()
         {
@@ -30,7 +32,7 @@ namespace SKK13
             }
         }
 
-        public  int CountAllDogs()
+        public int CountAllDogs()
         {
             var db = new DB(connStr);
 
@@ -38,7 +40,7 @@ namespace SKK13
             return numberOfDogs;
         }
 
-        public  int CountVeterinaryData()
+        public int CountVeterinaryData()
         {
             var db = new DB(connStr);
 
@@ -46,7 +48,7 @@ namespace SKK13
             return vetInfo;
         }
 
-        public  void GetDogInfo(int id)
+        public void GetDogInfo(int id)
         {
             var db = new DB(connStr);
 
@@ -55,7 +57,8 @@ namespace SKK13
                 Console.WriteLine($"Namn: {dog.Namn} \nRas: {dog.Ras} \nKön: {dog.Kön} \nFärg: {dog.Färg} \nHårlag: {dog.Hårlag} \nStorlek: {dog.Storlek}\n");
             }
         }
-        public  void GetSyblings()
+
+        public void GetSyblings()
         {
             var db = new DB(connStr);
 
