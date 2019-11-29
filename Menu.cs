@@ -15,14 +15,15 @@ namespace SKK13
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Gör ett val:\n"
-                + Convert.ToInt32(Choice.GetAllDogs) + ": Visa alla hundar\n"
+                Console.WriteLine(Convert.ToInt32(Choice.GetAllDogs) + ": Visa alla hundar\n"
                 + Convert.ToInt32(Choice.CountAllDogs) + ": Visa antal hundar i databas\n"
                 + Convert.ToInt32(Choice.CountVeterinaryData) + ": Visa antal veterinärdata i databas\n"
                 + Convert.ToInt32(Choice.GetDogInfo) + ": Visa hundinfo för Hund med Id 9 (Fantasia Li)\n"
                 + Convert.ToInt32(Choice.GetSyblings) + ": Visa syskonpar\n"
                 + Convert.ToInt32(Choice.SearchOwner) + ": Leta efter ägare\n"
                 + Convert.ToInt32(Choice.Quit) + ": Avsluta\n");
+
+                Console.Write("Gör ett val: ");
 
                 try
                 {

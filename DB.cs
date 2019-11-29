@@ -9,20 +9,12 @@ namespace SKK13
     public class DB
 
     {
-        // connectionString takes argument from "new DB"
         private readonly string connectionString;
 
-        private string connStr = "Server=40.85.84.155;Database=SKK13;User=Student13;Password=YH-student@2019;";
-        public string ConnStr
-        {
-            get { return connStr; }
-            set { connStr = value; }
-        }
-
         // constructor
-        public DB(string connectionString)
+        public DB()
         {
-            this.connectionString = connectionString;
+            this.connectionString = "Server=40.85.84.155;Database=SKK13;User=Student13;Password=YH-student@2019;";
         }
 
         // public method to call from application
@@ -117,7 +109,7 @@ namespace SKK13
             }
         }
 
-        public IEnumerable<Dog> GetSyblings()
+        public IEnumerable<Dog> GetSyblingsDB()
         {
             try
             {
@@ -134,7 +126,7 @@ namespace SKK13
             }
         }
 
-        public Owner SearchOwner(int id)
+        public Owner SearchOwnerDB(int id)
         {
             try
             {
