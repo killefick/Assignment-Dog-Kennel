@@ -12,6 +12,7 @@ ALTER TABLE Hundar
 DROP CONSTRAINT FK_Ägare
 GO
 
+-- är medveten om att man inte bör använda * men gör det för enkelhetens skull
 CREATE OR ALTER PROCEDURE GetAllDogs
 AS
 SELECT
@@ -455,5 +456,3 @@ WHERE H1.Födelsedatum_Id = H2.Födelsedatum_Id AND H1.Id = 9
 GO
 EXEC GetSyblings
 GO
-
-select * from Ägare
